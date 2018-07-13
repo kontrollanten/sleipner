@@ -65,6 +65,11 @@ class SearchBox extends React.Component {
       >
         <TextField
           autoFocus
+          InputProps={{
+            classes: {
+              input: styles.TextField
+            },
+          }}
           fullWidth
           onChange={this.handleChange}
           placeholder="What do you want to know?"

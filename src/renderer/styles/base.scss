@@ -1,3 +1,29 @@
+@font-face {
+  font-family: Lato;
+  font-weight: normal;
+  src: url('./Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Lato;
+  font-style: italic;
+  font-weight: normal;
+  src: url('./Lato-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Lato;
+  font-weight: bold;
+  src: url('./Lato-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Lato;
+  font-style: italic;
+  font-weight: bold;
+  src: url('./Lato-BoldItalic.ttf') format('truetype');
+}
+
 html,
 body {
   width: 100%;
@@ -6,8 +32,9 @@ body {
   padding: 0;
   line-height: 1;
   font-size: 14px/1.714285714285714;
-  font-family: Arial, Helvetica, sans-serif;
   color: #fff;
+  font-family: Lato, Arial, Helvetica, sans-serif;
   font-weight: 400;
   background-color: #fff;
 }
+
