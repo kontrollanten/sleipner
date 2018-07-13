@@ -1,20 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import { hot } from 'react-hot-loader';
 import { ipcRenderer } from 'electron';
 
 import store from './store';
-import SearchBox from './containers/SearchBox';
-
-import './styles/base.scss';
+import App from './components/app';
 
 let AppComponent;
 
 if (module.hot) {
-  AppComponent = hot(module)(SearchBox);
+  AppComponent = hot(module)(App);
 } else {
-  AppComponent = SearchBox;
+  AppComponent = App;
 }
 
 const targetElem = document.getElementById('root');
@@ -32,8 +29,6 @@ observer.observe(targetElem, {
 });
 
 ReactDOM.render(
-  <Provider store={store}>
-    <AppComponent />
-  </Provider>,
+  <AppComponent store={store} />,
   targetElem
 );
