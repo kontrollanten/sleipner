@@ -14,6 +14,12 @@ The following command will start `webpack-dev-server` and `electron`. `webpack-d
 * [React Developer Tools](https://github.com/facebook/react-devtools)
 * [Redux DevTools chrome extension](https://github.com/zalmoxisus/redux-devtools-extension)
 ```
+yarn dev
+```
+
+## Run production built renderer in electron
+The following will build renderer into production and then run it with the `electron` cmd. An easier way to verify renderer production build.
+```
 yarn start
 ```
 
