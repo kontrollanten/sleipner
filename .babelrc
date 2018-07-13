@@ -1,0 +1,13 @@
+{
+  "presets": [
+    ["env", {
+      "targets": { "node": 8 },
+    }],
+    "react"
+  ],
+  "plugins": [
+    "add-module-exports",
+    "transform-class-properties",
+    "transform-object-rest-spread"
+  ]
+}
