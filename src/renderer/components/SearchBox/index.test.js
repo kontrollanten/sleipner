@@ -194,7 +194,7 @@ describe('components/SearchBox', () => {
     expect(wrapper.find(Suggestion).length).to.equal(suggestions.length);
 
     wrapper.find(Suggestion).forEach((item, index) => {
-      expect(item.prop('title')).to.contain(suggestions[index].title)
+      expect(item.prop('title')).to.contain(suggestions[index].title);
     });
   });
 });

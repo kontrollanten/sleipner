@@ -1,6 +1,7 @@
 module.exports = {
   env: {
     browser: true,
+    jest: true,
     node: false,
   },
   globals: {

@@ -3,7 +3,6 @@ $media-size: 100px;
 .Card {
   display: grid;
   grid-template-columns: $media-size auto;
-
 }
 
 .CardSelected {

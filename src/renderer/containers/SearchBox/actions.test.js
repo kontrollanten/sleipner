@@ -3,7 +3,6 @@ import sinon from 'sinon';
 import electron from 'electron';
 jest.mock('../../lib/debounce');
 import debounce from '../../lib/debounce';
-import resolveSearch from '../../lib/resolve-search';
 import {
   HIDE_WINDOW,
   FETCH_SUGGESTIONS,

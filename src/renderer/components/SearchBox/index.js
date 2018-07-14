@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
-import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Suggestion from '../Suggestion';
 import KeyListener from '../KeyListener';
@@ -77,21 +76,21 @@ class SearchBox extends React.Component {
           placeholder="What do you want to know?"
           value={this.props.query}
         />
-          <Paper open={!!this.props.suggestions.length}>
-            {this.props.suggestions
-              .map((suggestion, index) => ({
-                highlighted: this.state.highlightedIndex === index,
-                suggestion,
-              }))
-              .map(({ highlighted, suggestion }) =>
-                <Suggestion
-                  key={suggestion.title}
-                  description={suggestion.description}
-                  highlighted={highlighted}
-                  title={suggestion.title}
-                  image={suggestion.image}
-                />
-              )}
+        <Paper open={!!this.props.suggestions.length}>
+          {this.props.suggestions
+            .map((suggestion, index) => ({
+              highlighted: this.state.highlightedIndex === index,
+              suggestion,
+            }))
+            .map(({ highlighted, suggestion }) =>
+              <Suggestion
+                key={suggestion.title}
+                description={suggestion.description}
+                highlighted={highlighted}
+                title={suggestion.title}
+                image={suggestion.image}
+              />
+            )}
         </Paper>
       </KeyListener>
     );

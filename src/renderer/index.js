@@ -16,11 +16,10 @@ if (module.hot) {
 
 const targetElem = document.getElementById('root');
 
-const observer = new MutationObserver(mutations => {
+const observer = new MutationObserver(() => {
   const height = targetElem.offsetHeight;
 
   ipcRenderer.send('resize', height);
-  console.log(height);
 });
 
 observer.observe(targetElem, {

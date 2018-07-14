@@ -18,11 +18,11 @@ const Suggestion = ({
     key={title}
   >
     {image && <CardMedia image={image} className={styles.CardMedia} />}
-      <CardContent className={styles.CardContent}>
-        <Typography variant="headline">{title}</Typography>
-        <Typography variant="subheading">{description}</Typography>
-      </CardContent>
-    </Card>
+    <CardContent className={styles.CardContent}>
+      <Typography variant="headline">{title}</Typography>
+      <Typography variant="subheading">{description}</Typography>
+    </CardContent>
+  </Card>
 );
 
 Suggestion.propTypes = {

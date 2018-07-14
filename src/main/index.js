@@ -45,6 +45,7 @@ function createMainWindow() {
   return win;
 }
 
+
 app.on('ready', () => {
   if (isDev) {
     /* eslint-disable no-console */
@@ -65,11 +66,13 @@ app.on('ready', () => {
       mainWindow = createMainWindow();
     }
     mainWindow.show();
-    console.log('CommandOrControl+X is pressed')
+    // eslint-disable-next-line no-console
+    console.log('CommandOrControl+X is pressed');
   });
 
   if (!openCmd) {
-    console.log('registration failed')
+    // eslint-disable-next-line no-console
+    console.error('registration failed');
   }
 
   ipcMain.on('resize', (e, height) => {

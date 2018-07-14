@@ -3,7 +3,6 @@ export default (func, time) => {
 
   return function() {
     const args = arguments;
-    const self = this;
 
     return new Promise(resolve => {
       clearTimeout(timeout);

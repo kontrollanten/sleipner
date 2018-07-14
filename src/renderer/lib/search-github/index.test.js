@@ -56,7 +56,7 @@ describe('lib/search-github', () => {
               title: items[index].full_name,
               url: items[index].html_url,
             })
-          )
+          );
       });
   });
 });

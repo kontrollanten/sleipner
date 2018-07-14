@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import SearchBox from '../../containers/SearchBox';
 
 import '../../styles/base.scss';
 
-export default ({ store }) => (
+const App = ({ store }) => (
   <MuiThemeProvider theme={createMuiTheme({
     typography: {
       fontFamily: 'Lato',
@@ -17,3 +18,9 @@ export default ({ store }) => (
     </Provider>
   </MuiThemeProvider>
 );
+
+App.propTypes = {
+  store: PropTypes.object.isRequired,
+};
+
+export default App;
