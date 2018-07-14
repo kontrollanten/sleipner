@@ -1,14 +1,28 @@
 import { expect } from 'chai';
 
 import {
-  UPDATE_SEARCH_VALUE,
+  HIDE_WINDOW,
   FETCH_SUGGESTIONS,
   FETCH_SUGGESTIONS_FAILURE,
   FETCH_SUGGESTIONS_SUCCESS,
+  UPDATE_SEARCH_VALUE,
 } from './types';
 import SearchBox from './reducer';
 
 describe('containers/SearchBox/reducer', () => {
+  it('should clear suggestions and query upon HIDE_WINDOW', () => {
+    const oldState = {
+      suggestions: [{}],
+      query: 'gh freja',
+    };
+    const state = SearchBox(oldState, {
+      type: HIDE_WINDOW,
+    });
+
+    expect(state.suggestions).to.eql([]);
+    expect(state.query).to.equal('');
+  });
+
   it('should increment loading upon FETCH_SUGGESTIONS', () => {
     const state = SearchBox(undefined, {
       type: FETCH_SUGGESTIONS,

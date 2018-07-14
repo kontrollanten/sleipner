@@ -12,6 +12,7 @@ import Suggestion from '../Suggestion';
 describe('components/SearchBox', () => {
   const defaultProps = {
     onChange: sinon.spy(),
+    onEscape: sinon.spy(),
     onSelect: sinon.spy(),
     suggestions: [],
   };
@@ -37,6 +38,21 @@ describe('components/SearchBox', () => {
     wrapper.simulate('keyEnter');
 
     expect(onSelect).to.have.been.calledWith(suggestion);
+  });
+
+  it('should call onEscape upon keyDownEscape when suggestions exists', () => {
+    const suggestions = [
+      {
+        title: 'This sucks',
+        url: 'https://',
+      },
+    ];
+    const onEscape = sinon.spy();
+    const wrapper = shallow(<SearchBox {...defaultProps} onEscape={onEscape} suggestions={suggestions} />);
+
+    wrapper.simulate('keyEscape');
+
+    expect(onEscape).to.have.been.calledWith();
   });
 
   it('should set accurate Suggestion to highlighted upon first keyDownArrow', () => {

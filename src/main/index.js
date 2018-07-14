@@ -72,10 +72,6 @@ app.on('ready', () => {
     console.log('registration failed')
   }
 
-  const hideCmd = globalShortcut.register('Escape', () => {
-    mainWindow.hide();
-  });
-
   ipcMain.on('resize', (e, height) => {
     mainWindow.setSize(1000, height);
   });
@@ -84,3 +80,4 @@ app.on('ready', () => {
   mainWindow.show();
 });
 
+ipcMain.on('hide-window', () => mainWindow.hide());

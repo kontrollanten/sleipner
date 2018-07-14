@@ -11,6 +11,7 @@ import styles from './styles.scss';
 class SearchBox extends React.Component {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
+    onEscape: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
     suggestions: PropTypes.arrayOf(
       PropTypes.shape({
@@ -61,6 +62,7 @@ class SearchBox extends React.Component {
         tabIndex="0"
         onKeyDownArrow={this.handleKeyDownArrow}
         onKeyEnter={this.handleKeyEnter}
+        onKeyEscape={this.props.onEscape}
         onKeyUpArrow={this.handleKeyUpArrow}
       >
         <TextField

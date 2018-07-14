@@ -1,7 +1,8 @@
-import { shell } from 'electron';
+import { ipcRenderer, shell } from 'electron';
 import resolveSearch from '../../lib/resolve-search';
 import debounce from '../../lib/debounce';
 import {
+  HIDE_WINDOW,
   FETCH_SUGGESTIONS,
   FETCH_SUGGESTIONS_FAILURE,
   FETCH_SUGGESTIONS_SUCCESS,
@@ -10,6 +11,14 @@ import {
   SELECT_SUGGESTION_SUCCESS,
   UPDATE_SEARCH_VALUE,
 } from './types';
+
+export const hideWindow = () => dispatch => {
+  dispatch({
+    type: HIDE_WINDOW,
+  });
+
+  ipcRenderer.send('hide-window');
+};
 
 const debouncedResolveSearch = debounce(resolveSearch, 300);
 

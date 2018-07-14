@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import SearchBox from '../../components/SearchBox';
 import {
+  hideWindow,
   fetchSuggestions,
   selectSuggestion,
   updateSearchValue,
@@ -16,6 +17,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(updateSearchValue(query));
     dispatch(fetchSuggestions(query));
   },
+  onEscape: () => dispatch(hideWindow()),
   onSelect: suggestion => dispatch(selectSuggestion(suggestion)),
 });
 

@@ -81,4 +81,13 @@ describe('containers/SearchBox', () => {
 
     expect(actions.updateSearchValue).to.have.been.calledWith(query);
   });
+
+  it('should call hideWindow upon onEscape', () => {
+    sandbox.stub(actions, 'hideWindow');
+    const wrapper = mount(<SearchBox store={store} />);
+
+    wrapper.find(SearchBoxComponent).prop('onEscape')();
+
+    expect(actions.hideWindow).to.have.been.calledWith();
+  });
 });

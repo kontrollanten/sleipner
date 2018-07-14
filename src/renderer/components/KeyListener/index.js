@@ -6,12 +6,14 @@ export default class KeyListener extends React.Component {
     onKeyDownArrow: PropTypes.func,
     onKeyUpArrow: PropTypes.func,
     onKeyEnter: PropTypes.func,
+    onKeyEscape: PropTypes.func,
   };
 
   static defaultProps = {
     onKeyDownArrow: () => null,
     onKeyUpArrow: () => null,
     onKeyEnter: () => null,
+    onKeyEscape: () => null,
   };
 
   handleKeyDown = event => {
@@ -22,6 +24,8 @@ export default class KeyListener extends React.Component {
         return this.props.onKeyUpArrow();
       case 'Enter': 
         return this.props.onKeyEnter();
+      case 'Escape':
+        return this.props.onKeyEscape();
     }
   };
 

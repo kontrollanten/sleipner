@@ -1,8 +1,9 @@
 import {
-  UPDATE_SEARCH_VALUE,
+  HIDE_WINDOW,
   FETCH_SUGGESTIONS,
   FETCH_SUGGESTIONS_FAILURE,
   FETCH_SUGGESTIONS_SUCCESS,
+  UPDATE_SEARCH_VALUE,
 } from './types';
 
 const initialState = {
@@ -13,6 +14,12 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case HIDE_WINDOW:
+      return {
+        ...state,
+        suggestions: [],
+        query: '',
+      };
     case FETCH_SUGGESTIONS:
       return {
         ...state,

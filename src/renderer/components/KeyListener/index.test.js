@@ -38,5 +38,16 @@ describe('components/KeyListener', () => {
 
     expect(onKeyEnter).to.have.been.calledWith();
   });
+
+  it('should fire onKeyEscape upon Escape keydown', () => {
+    const onKeyEscape = sinon.spy();
+    const wrapper = shallow(<KeyListener onKeyEscape={onKeyEscape} />);
+
+    wrapper.simulate('keyDown', {
+      key: 'Escape',
+    });
+
+    expect(onKeyEscape).to.have.been.calledWith();
+  });
 });
 

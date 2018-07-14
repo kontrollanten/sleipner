@@ -5,6 +5,7 @@ jest.mock('../../lib/debounce');
 import debounce from '../../lib/debounce';
 import resolveSearch from '../../lib/resolve-search';
 import {
+  HIDE_WINDOW,
   FETCH_SUGGESTIONS,
   FETCH_SUGGESTIONS_FAILURE,
   FETCH_SUGGESTIONS_SUCCESS,
@@ -29,6 +30,31 @@ describe('containers/SearchBox/actions', () => {
 
   afterAll(() => {
     jest.unmock('electron');
+  });
+
+  describe('hideWindow', () => {
+    const dispatch = sinon.spy();
+    const sandbox = sinon.createSandbox();
+
+    afterEach(() => {
+      dispatch.resetHistory();
+      sandbox.restore();
+    });
+
+    it('should HIDE_WINDOW', () => {
+      require('./actions').hideWindow()(dispatch);
+
+      expect(dispatch).to.have.been.calledWith({
+        type: HIDE_WINDOW,
+      });
+    });
+
+    it('should call ipcRenderer `hide-window`', () => {
+      sandbox.stub(electron.ipcRenderer, 'send');
+      require('./actions').hideWindow()(dispatch);
+
+      expect(electron.ipcRenderer.send).to.have.been.calledWith('hide-window');
+    });
   });
 
   describe('fetchSuggestions', () => {
